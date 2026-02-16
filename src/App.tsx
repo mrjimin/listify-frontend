@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import axios from "axios";
+import {api} from "@/api/api.ts";
 
 function App() {
     const [count, setCount] = useState(0)
@@ -10,13 +10,13 @@ function App() {
     const [hello, setHello] = useState('Def: Null')
 
     useEffect(() => {
-        axios.get('/api/time')
+        api.get('/api/time')
             .then(res => setServerTime(res.data))
             .catch(err => console.log(err))
     }, []);
 
     useEffect(() => {
-        axios.get('/api/hello')
+        api.get('/api/hello')
             .then(res => setHello(res.data))
             .catch(err => console.log(err))
     }, []);
@@ -26,12 +26,8 @@ function App() {
     return (
         <>
             <div>
-                <p>
-                    {serverTime}
-                </p>
-                <p>
-                    {hello}
-                </p>
+                <p>{serverTime}</p>
+                <p>{hello}</p>
                 <a href="https://vite.dev" target="_blank">
                     <img src={viteLogo} className="logo" alt="Vite logo" />
                 </a>
