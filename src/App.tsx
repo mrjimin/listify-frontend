@@ -6,8 +6,8 @@ import axios from "axios";
 
 function App() {
     const [count, setCount] = useState(0)
-    const [serverTime, setServerTime] = useState('')
-    const [hello, setHello] = useState('')
+    const [serverTime, setServerTime] = useState('Def: Null')
+    const [hello, setHello] = useState('Def: Null')
 
     useEffect(() => {
         axios.get('/api/time')
